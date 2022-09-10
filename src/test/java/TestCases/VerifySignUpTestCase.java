@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import PageObjectModel.LoginPageObjects;
 import PageObjectModel.SignUpObjects;
 import Resources.BaseClass;
+import Resources.CommonUtilities;
 
 public class VerifySignUpTestCase extends BaseClass {
 
@@ -27,12 +28,9 @@ public class VerifySignUpTestCase extends BaseClass {
 		spo.Company().sendKeys("LTI");
 		spo.UserEmail().sendKeys("sushantshastri24@gmail.com");
 		spo.Phone().sendKeys("8655104214");
-		Select s=new Select(spo.SelectJobTitle());
-		s.selectByIndex(1);
-		Select s1=new Select(spo.EmployeeStrength());
-		s1.selectByIndex(1);
-		Select s2=new Select(spo.CompanyCountry());
-		s2.selectByIndex(1);
+		CommonUtilities.dropdownhandle(spo.SelectJobTitle(),1);
+		CommonUtilities.dropdownhandle(spo.EmployeeStrength(),2);
+		CommonUtilities.dropdownhandle(spo.CompanyCountry(),3);
 		
 	} 
 }
